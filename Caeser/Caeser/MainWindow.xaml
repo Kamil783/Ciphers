@@ -1,0 +1,19 @@
+﻿<Window x:Class="Caeser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Caeser"
+        mc:Ignorable="d"
+        Title="Шифр Цезаря" Height="900" Width="1600" Icon="icon2.ico" WindowStartupLocation="CenterScreen" Background="#808080">
+    <Grid>
+        <TextBox x:Name="TextBoxInput" Height="500" Width="600" Margin="100,100,0,0" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyleSecond}" Text="Здесь Вы можете ввести текст для шифрования(расшифрования)" PreviewMouseDown="TextBoxInput_PreviewMouseDown" />
+        <TextBox x:Name="TextBoxOutput" Height="500" Width="600" Margin="900,100,0,0" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyleSecond}" IsReadOnly="True" IsReadOnlyCaretVisible="False" Text="Здесь появится зашифрованный (расшифрованный) текст"/>
+        <TextBox x:Name="TextBoxKey" Height="50" Width="150" Margin="0 700 0 0" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyleSecond}" PreviewMouseDown="TextBoxKey_PreviewMouseDown" Text="Ключ"/>
+        <Button x:Name="ButtonEncrypt" Content="Зашифровать" Height="50" Width="200" Margin="300 750 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource ButtonStyle}" Click="ButtonEncrypt_Click"/>
+        <Button x:Name="ButtonDecrypt" Content="Расшифровать" Height="50" Width="200" Margin="1100 750 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource ButtonStyle}" Click="ButtonDecrypt_Click"/>
+        <Button x:Name="ButtonCopy" Height="38" Width="38" Margin="1330 260 0 0" Style="{StaticResource ButtonCopyStyle}" Click="ButtonCopy_Click" >
+            <Image Source="copy.png" Height="35" Width="35"/>
+        </Button>
+    </Grid>
+</Window>

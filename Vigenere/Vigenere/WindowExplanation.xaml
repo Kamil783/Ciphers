@@ -1,0 +1,16 @@
+﻿<Window x:Class="Vigenere.WindowExplanation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vigenere"
+        mc:Ignorable="d"
+        Title="Шифр Виженера" Height="450" Width="800" Icon="icon2.ico" WindowStartupLocation="CenterScreen" Background="#808080">
+    <Grid>
+        <TextBox x:Name="TextBoxExplonation" Height="250" Width="700" VerticalAlignment="Top" Margin="0 50 0 0"  TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" IsReadOnlyCaretVisible="False" >
+            Это - шифр Виженера. Перед Вами будет три окна: два больших слева и справа (для ввода и вывода шифра соответственно) и одно малое для ввода ключа. 
+            Для шифрования Вы можете использовать английский и русский алфавит, а также цифры. Запрещены любые символы, а пробелы буду удалены. Ключ - буквы русского или английского алфавита. После ознакомления нажмите кнопку ниже.
+        </TextBox>
+        <Button x:Name="ButtonOkExplonation" Content="OK!" Height="50" Width="200" VerticalAlignment="Top" Margin="0 350 0 0" Style="{StaticResource ButtonStyle}" Click="ButtonOkExplonation_Click"/>
+    </Grid>
+</Window>
