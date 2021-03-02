@@ -24,5 +24,11 @@ namespace XOR
         {
             InitializeComponent();
         }
+
+        public void Start()
+        {
+            var WE = new WindowExplanation();
+            WE.ShowDialog();
+        }
     }
 }
