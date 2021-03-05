@@ -24,9 +24,16 @@ namespace XOR
             InitializeComponent();
         }
 
-        public void ReturnData(out bool type)
+        public void ReturnData(out int type)
         {
-            type = AutoShift.IsChecked != true;
+            type = 0;
+
+            if (ManualBinShift.IsChecked == true)
+                type = 1;
+
+            if (ManualShift.IsChecked == true)
+                type = 2;
+
         }
 
         private void ButtonOkExplonation_Click(object sender, RoutedEventArgs e)

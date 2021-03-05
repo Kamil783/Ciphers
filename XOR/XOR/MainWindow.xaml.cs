@@ -23,7 +23,7 @@ namespace XOR
         private string _text;
         private string _codedText;
         private string _shift;
-        private bool _type;
+        private int _type;
 
         private bool _isLetter = true;
         private bool _isCorrect = false;
@@ -58,7 +58,7 @@ namespace XOR
 
         private void XOR_Cipher()
         {
-            if (_type)
+            if (_type == 1) //реализовать различные типы
             {
                 if (TextBoxInput.Text == "" || TextBoxKey.Text == "")
                     MessageBox.Show("Пожалуйста, введите и текст для шифрования, и ключ шифрования", "Ошибка!",
@@ -230,17 +230,20 @@ namespace XOR
             return codedText;
         }
 
-        private char Shift_letter(char letter, char letterShift)                                                     //критическая ошибка с двоичным кодом
+        private char Shift_letter(char letter, char letterShift) //доделать преобразования
         {
-            var intermediate = Convert.ToUInt32(ConvertToBinary(letter.ToString()), 2);
-            var shift = Convert.ToUInt32(ConvertToBinary(letterShift.ToString()), 2);
+            var intermediate = "";
 
-            
-            var help = (intermediate ^ shift);
+            var binarLetter = ConvertToBinary(letter.ToString());
+            var binarShift = ConvertToBinary(letterShift.ToString());
 
-            
+            for (int i = 0; i < 8; i++)
+            {
+                intermediate += Convert.ToString(Convert.ToInt32(binarLetter[i]) ^ Convert.ToInt32(binarShift[i]));
+            }
 
-            var newLetter = Convert.ToChar(help);
+
+            var newLetter = 'A';
             return newLetter;
         }
 
