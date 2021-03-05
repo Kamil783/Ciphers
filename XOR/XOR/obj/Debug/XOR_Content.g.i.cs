@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("copy.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon2.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("copy2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("enc.png")]
 
 

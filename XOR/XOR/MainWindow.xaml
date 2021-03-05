@@ -9,13 +9,17 @@
     <Grid>
         <TextBox x:Name="TextBoxInput" Height="500" Width="600" Margin="100,50,0,0" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyleSecond}" Text="Здесь Вы можете ввести текст для шифрования(расшифрования)" PreviewMouseDown="TextBoxInput_PreviewMouseDown"/>
         <TextBox x:Name="TextBoxOutput" Height="500" Width="600" Margin="900,50,0,0" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyleSecond}" IsReadOnly="True" IsReadOnlyCaretVisible="False" Text="Здесь появится зашифрованный (расшифрованный) текст"/>
-        <TextBox x:Name="TextBoxKey" Height="100" Width="450" Margin="0 600 0 0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyleSecond}" PreviewMouseDown="TextBoxKey_PreviewMouseDown" Text="Ключ"/>
+        <TextBox x:Name="TextBoxKey" Height="100" Width="450" Margin="0 600 800 0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyleSecond}" PreviewMouseDown="TextBoxKey_PreviewMouseDown" Text="Ключ"/>
+        <TextBox x:Name="TextBoxCheck" Height="100" Width="450" Margin="800 600 0 0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Style="{DynamicResource TextBoxStyleSecond}" IsReadOnly="True" IsReadOnlyCaretVisible="False" Text="Проверка"/>
         <Button x:Name="ButtonEncrypt" Height="100" Width="200" Margin="0 725 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource ButtonStyle}" Click="ButtonEncrypt_Click">
             <TextBlock TextAlignment="Center" Style="{StaticResource ForButtonStyle}"> Зашифровать/
                 <LineBreak/> Расшифровать</TextBlock>
         </Button>
         <Button x:Name="ButtonCopy" Height="38" Width="38" Margin="1335 170 0 0" Style="{StaticResource ButtonCopyStyle}" Click="ButtonCopy_Click" >
-            <Image Source="copy.png" Height="35" Width="35"/>
+            <Image Source="copy2.png" Height="35" Width="35"/>
+        </Button>
+        <Button x:Name="ButtonEnc" Height="38" Width="38" Margin="275 170 0 0" Style="{StaticResource ButtonCopyStyle}" Click="ButtonEnc_Click" >
+            <Image Source="enc.png" Height="35" Width="35"/>
         </Button>
     </Grid>
 </Window>
