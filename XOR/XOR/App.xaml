@@ -70,5 +70,18 @@
             </Setter>
         </Style>
 
+        <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+
+        <Style x:Key="ForButtonStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+        </Style>
+
     </Application.Resources>
 </Application>

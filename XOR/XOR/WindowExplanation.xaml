@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XOR"
         mc:Ignorable="d"
-        Title="XOR шифр" Height="450" Width="800" Icon="icon2.ico" WindowStartupLocation="CenterScreen" Background="#808080">
+        Title="XOR шифр" Height="550" Width="800" Icon="icon2.ico" WindowStartupLocation="CenterScreen" Background="#808080">
     <Grid>
         <TextBox x:Name="TextBoxExplonation" Height="250" Width="700" VerticalAlignment="Top" Margin="0 50 0 0"  TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" IsReadOnlyCaretVisible="False" >
             
         </TextBox>
-        <Button x:Name="ButtonOkExplonation" Content="OK!" Height="50" Width="200" VerticalAlignment="Top" Margin="0 350 0 0" Style="{StaticResource ButtonStyle}" Click="ButtonOkExplonation_Click"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0 350 0 0" Height="68">
+            <RadioButton x:Name="AutoShift" Content="Автоматический ключ" Margin="20" IsChecked="True" Style="{StaticResource RadioButtonStyle}"/>
+            <RadioButton x:Name="ManualShift" Content="Ручной ввод ключа" Margin="20" Style="{StaticResource RadioButtonStyle}"/>
+        </StackPanel>
+        <Button x:Name="ButtonOkExplonation" Content="OK!" Height="50" Width="200" VerticalAlignment="Top" Margin="0 450 0 0" Style="{StaticResource ButtonStyle}" Click="ButtonOkExplonation_Click"/>
     </Grid>
 </Window>

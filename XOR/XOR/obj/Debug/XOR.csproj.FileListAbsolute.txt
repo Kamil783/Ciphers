@@ -1,0 +1,17 @@
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.csprojAssemblyReference.cache
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\WindowExplanation.g.cs
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\App.g.cs
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR_MarkupCompile.cache
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR_MarkupCompile.lref
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\MainWindow.g.cs
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\bin\Debug\XOR.exe.config
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\bin\Debug\XOR.exe
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\bin\Debug\XOR.pdb
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\App.baml
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\MainWindow.baml
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\WindowExplanation.baml
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.g.resources
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.Properties.Resources.resources
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.csproj.GenerateResource.cache
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.exe
+C:\Users\Камил\Desktop\Ciphers\XOR\XOR\obj\Debug\XOR.pdb

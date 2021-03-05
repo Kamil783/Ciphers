@@ -23,5 +23,15 @@ namespace XOR
         {
             InitializeComponent();
         }
+
+        public void ReturnData(out bool type)
+        {
+            type = AutoShift.IsChecked != true;
+        }
+
+        private void ButtonOkExplonation_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
