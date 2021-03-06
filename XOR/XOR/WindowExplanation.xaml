@@ -8,7 +8,7 @@
         Title="XOR шифр" Height="550" Width="1000" Icon="icon2.ico" WindowStartupLocation="CenterScreen" Background="#808080">
     <Grid>
         <TextBox x:Name="TextBoxExplonation" Height="250" Width="900" VerticalAlignment="Top" Margin="0 50 0 0"  TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" IsReadOnly="True" IsReadOnlyCaretVisible="False" >
-            
+            Это - XOR шифр. Перед Вами будут 4 окна для ввода шифра, ввода ключа, вывода зашифрованного текста, а также для проверки работы шифра. Есть возможность скопировать текст из окна вывода. Выберете режим шифрования и нажмите "ОК!"
         </TextBox>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0 350 0 0" Height="68">
             <RadioButton x:Name="AutoShift" Content="Автоматический ключ" Margin="20" IsChecked="True" Style="{StaticResource RadioButtonStyle}"/>

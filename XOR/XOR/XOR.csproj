@@ -108,5 +108,8 @@
     <Resource Include="copy2.png" />
     <Resource Include="enc.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="new_key.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

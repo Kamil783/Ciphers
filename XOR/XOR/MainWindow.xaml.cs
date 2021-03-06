@@ -26,14 +26,13 @@ namespace XOR
         private bool _type;
 
         private bool _isLetter = true;
+        private bool _isFirst = true;
         private bool _isCorrect = false;
         private bool _isEnglishShift = false;
-        private bool _isEnglishText = false;
         public string EnglishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         public string RussianAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
         public string EnglishAlphabetWithNumbers = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         public string RussianAlphabetWithNumbers = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789";
-        public string Symbols = "~`!@#$%^&*()-+=[]{}|;:',.<>?№/";
         public MainWindow()
         {
             InitializeComponent();
@@ -46,11 +45,18 @@ namespace XOR
             WE.ShowDialog();
             WE.ReturnData(out var type);
             _type = type;
+            if (_type)
+                ButtonNewShift.Visibility = Visibility.Hidden;
+            if (!_type)
+            {
+                TextBoxKey.Visibility = Visibility.Hidden;
+                TextBoxCheck.Margin = new Thickness(0, 600, 0, 0);
+            }
         }
 
-        private void XOR_Cipher(bool Enc)
+        private void XOR_Cipher(bool enc)
         {
-            if (_type) 
+            if (_type)
             {
                 if (TextBoxInput.Text == "" || TextBoxKey.Text == "")
                     MessageBox.Show("Пожалуйста, введите и текст для шифрования, и ключ шифрования", "Ошибка!",
@@ -61,6 +67,11 @@ namespace XOR
                     {
                         if (!(EnglishAlphabet.Contains(TextBoxKey.Text[i]) ||
                               RussianAlphabet.Contains(TextBoxKey.Text[i])))
+                            _isLetter = false;
+                        if((EnglishAlphabet.Contains(TextBoxInput.Text[0]) &&
+                            RussianAlphabet.Contains(TextBoxKey.Text[i]) || 
+                            (RussianAlphabet.Contains(TextBoxInput.Text[0]) &&
+                             EnglishAlphabet.Contains(TextBoxKey.Text[i]))))
                             _isLetter = false;
                         if (_isLetter == false)
                         {
@@ -99,7 +110,7 @@ namespace XOR
                 if (_isCorrect != true) return;
                 var index2 = 0;
                 _shift = TextBoxKey.Text;
-                _text = Enc == true ? TextBoxInput.Text : TextBoxOutput.Text;
+                _text = enc == true ? TextBoxInput.Text : TextBoxOutput.Text;
                 while (_text[index2] > 47 && _text[index2] < 58)
                 {
                     if (index2 == _text.Length - 1)
@@ -108,14 +119,12 @@ namespace XOR
                 }
 
                 if ((_text[index2] > 64 && _text[index2] < 91) || (_text[index2] > 96 && _text[index2] < 123))
-                    _isEnglishText = true;
-                _codedText = Code(_text, _shift);
+                    _codedText = Code(_text, _shift);
                 TextBoxOutput.Style = Application.Current.Resources["TextBoxStyle"] as Style;
-                if(Enc == false)
+                if (enc == false)
                     TextBoxCheck.Style = Application.Current.Resources["TextBoxStyle"] as Style;
                 _isCorrect = false;
-                _isEnglishText = false;
-                if (Enc == true)
+                if (enc == true)
                 {
                     TextBoxOutput.Text = _codedText;
                 }
@@ -133,8 +142,9 @@ namespace XOR
                     _isCorrect = true;
                 if (_isCorrect != true) return;
                 var index2 = 0;
-                _text = TextBoxInput.Text;
-                _shift = RandomShift(_text.Length);
+                _text = enc == true ? TextBoxInput.Text : TextBoxOutput.Text;
+                if (_isFirst)
+                    _shift = RandomShift(_text.Length);
                 while (_text[index2] > 47 && _text[index2] < 58)
                 {
                     if (index2 == _text.Length - 1)
@@ -142,14 +152,22 @@ namespace XOR
                     index2++;
                 }
 
-                if ((_text[index2] > 64 && _text[index2] < 91) || (_text[index2] > 96 && _text[index2] < 123))
-                    _isEnglishText = true;
                 _codedText = Code(_text, _shift);
                 TextBoxOutput.Style = Application.Current.Resources["TextBoxStyle"] as Style;
+                if (enc == false)
+                    TextBoxCheck.Style = Application.Current.Resources["TextBoxStyle"] as Style;
+                if (_isFirst)
+                    MessageBox.Show(String.Format("{0} - Ваш ключ к данному шифру", _shift), "Ключ шифра", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 _isCorrect = false;
-                _isEnglishText = false;
-                MessageBox.Show(String.Format("{0} - Ваш ключ к данному шифру", _shift), "Ключ шифра", MessageBoxButton.OK, MessageBoxImage.Asterisk);
-                TextBoxOutput.Text = _codedText;
+                _isFirst = false;
+                if (enc == true)
+                {
+                    TextBoxOutput.Text = _codedText;
+                }
+                else
+                {
+                    TextBoxCheck.Text = _codedText;
+                }
             }
         }
 
@@ -171,6 +189,7 @@ namespace XOR
         private string RandomShift(int length)
         {
             var key = "";
+            var help = "";
             //var rand = new Random(Guid.NewGuid().GetHashCode());
             //for (int i = 0; i < length; i++)
             //{
@@ -180,30 +199,40 @@ namespace XOR
 
             var Count0 = 0;
             var Count1 = 0;
-            while (key.Length == 8)
+            for (int i = 0; i < length; i++)
             {
-                var rnd = new Random(Guid.NewGuid().GetHashCode());
-                var _key = rnd.Next(0, 2);
-                switch (_key)
+                help = "";
+                Count0 = 0;
+                Count1 = 0;
+                while (help.Length < 8)
                 {
-                    case 0:
-                        Count0++;
-                        break;
-                    case 1:
-                        Count1++;
-                        break;
+                    var rnd = new Random(Guid.NewGuid().GetHashCode());
+                    var _key = rnd.Next(0, 2);
+                    switch (_key)
+                    {
+                        case 0:
+                            Count0++;
+                            break;
+                        case 1:
+                            Count1++;
+                            break;
+                    }
+
+                    if (Count0 < 5 && _key == 0)
+                        help += _key.ToString();
+                    if (Count1 < 5 && _key == 1)
+                        help += _key.ToString();
                 }
 
-                if (Count0 < 5 && _key == 0)
-                    key += _key.ToString();
-                if (Count1 < 5 && _key == 1)
-                    key += _key.ToString();
+                key += help;
             }
+
             return key;
         }
 
         private string Code(string text, string shift)
         {
+            var index = 0;
             var fullShift = "";
             var codedText = "";
             var textLength = text.Length;
@@ -222,14 +251,27 @@ namespace XOR
                     fullShift += shift[i];
                 }
             }
-            for (int i = 0; i < text.Length; i++)
+
+            if (!_type)
             {
-                codedText += Shift_letter(text[i], fullShift[i]);
+                for (int i = 0; i < text.Length; i++)
+                {
+                    codedText += Shift_letter(text[i], fullShift[i], shift.Substring(index, 8));
+                    index += 8;
+                }
             }
+            else
+            {
+                for (int i = 0; i < text.Length; i++)
+                {
+                    codedText += Shift_letter(text[i], fullShift[i], "");
+                }
+            }
+
             return codedText;
         }
 
-        private string Shift_letter(char letter, char letterShift) 
+        private string Shift_letter(char letter, char letterShift, string shift)
         {
             //Encoding _default = Encoding.Default;
             //Encoding unicode = Encoding.Unicode;
@@ -237,8 +279,8 @@ namespace XOR
             //var binarLetter = ConvertToBinary(letter.ToString());
 
             //var binarShift = ConvertToBinary(letterShift.ToString());
-          
-            
+
+
             //for (int i = 0; i < 8; i++)
             //{
             //    intermediate += Convert.ToString(Convert.ToInt32(binarLetter[i]) ^ Convert.ToInt32(binarShift[i]));
@@ -255,8 +297,10 @@ namespace XOR
             //string asciiString = new string(asciiChars);
 
             //return newLetter;
+            var binaryShift = _type ? ConvertToBinary(letterShift.ToString()) : shift;
+            
             var binaryLetter = ConvertToBinary(letter.ToString());
-            var binaryShift = ConvertToBinary(letterShift.ToString());
+            
             var bytes = new byte[1];
 
             var _binaryLetter = Convert.ToByte(binaryLetter, 2);
@@ -301,6 +345,11 @@ namespace XOR
         private void ButtonEnc_Click(object sender, RoutedEventArgs e)
         {
             XOR_Cipher(false);
+        }
+
+        private void ButtonNewShift_Click(object sender, RoutedEventArgs e)
+        {
+            _isFirst = true;
         }
     }
 }

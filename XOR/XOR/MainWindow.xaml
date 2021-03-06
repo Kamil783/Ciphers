@@ -21,5 +21,8 @@
         <Button x:Name="ButtonEnc" Height="38" Width="38" Margin="275 170 0 0" Style="{StaticResource ButtonCopyStyle}" Click="ButtonEnc_Click" >
             <Image Source="enc.png" Height="35" Width="35"/>
         </Button>
+        <Button x:Name="ButtonNewShift" Height="38" Width="38" Margin="0 170 1335 0" Style="{StaticResource ButtonCopyStyle}" Click="ButtonNewShift_Click" >
+            <Image Source="new_key.png" Height="35" Width="35"/>
+        </Button>
     </Grid>
 </Window>
