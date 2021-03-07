@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XOR", "XOR\XOR.csproj", "{29E32E5C-85CC-4944-A447-7F033FBBEB54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29E32E5C-85CC-4944-A447-7F033FBBEB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E32E5C-85CC-4944-A447-7F033FBBEB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E32E5C-85CC-4944-A447-7F033FBBEB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E32E5C-85CC-4944-A447-7F033FBBEB54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D69B1A52-3057-424C-9CAB-9274EED48D2C}
+	EndGlobalSection
+EndGlobal
