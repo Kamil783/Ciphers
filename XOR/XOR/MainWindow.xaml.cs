@@ -108,18 +108,9 @@ namespace XOR
                     }
                 }
                 if (_isCorrect != true) return;
-                var index2 = 0;
                 _shift = TextBoxKey.Text;
                 _text = enc == true ? TextBoxInput.Text : TextBoxOutput.Text;
-                while (_text[index2] > 47 && _text[index2] < 58)
-                {
-                    if (index2 == _text.Length - 1)
-                        break;
-                    index2++;
-                }
-
-                if ((_text[index2] > 64 && _text[index2] < 91) || (_text[index2] > 96 && _text[index2] < 123))
-                    _codedText = Code(_text, _shift);
+                _codedText = Code(_text, _shift);
                 TextBoxOutput.Style = Application.Current.Resources["TextBoxStyle"] as Style;
                 if (enc == false)
                     TextBoxCheck.Style = Application.Current.Resources["TextBoxStyle"] as Style;
@@ -141,17 +132,10 @@ namespace XOR
                 else
                     _isCorrect = true;
                 if (_isCorrect != true) return;
-                var index2 = 0;
                 _text = enc == true ? TextBoxInput.Text : TextBoxOutput.Text;
                 if (_isFirst)
                     _shift = RandomShift(_text.Length);
-                while (_text[index2] > 47 && _text[index2] < 58)
-                {
-                    if (index2 == _text.Length - 1)
-                        break;
-                    index2++;
-                }
-
+                
                 _codedText = Code(_text, _shift);
                 TextBoxOutput.Style = Application.Current.Resources["TextBoxStyle"] as Style;
                 if (enc == false)
